@@ -43,7 +43,6 @@ $routes->get('/kontak', 'Pages::kontak', ['as' => 'kontak']);
 $routes->get('/about', 'Pages::about', ['as' => 'about']);
 
 $routes->get('/artikel', 'Pages::artikel', ['as' => 'artikel']);
-// $routes->get('/artikel/detail', 'Pages::artikelDetail', ['as' => 'artikel detail']);
 $routes->get('/artikel/detail/(:num)', 'Pages::artikelDetail/$1', ['as' => 'artikel detail']);
 
 $routes->get('/event', 'Pages::event', ['as' => 'event']);
@@ -52,6 +51,10 @@ $routes->get('/klien', 'Pages::klien', ['as' => 'klien']);
 
 $routes->get('/auth/login', 'Pages::login', ['as' => 'login']);
 $routes->get('/auth/signup', 'Pages::signup', ['as' => 'signup']);
+
+$routes->post('/auth/login', 'Auth::login', ['as' => 'loginform']);
+$routes->post('/auth/signup', 'Auth::signup', ['as' => 'signupform']);
+$routes->post('/auth/logout', 'Auth::logout', ['as' => 'logoutform']);
 
 /*
  * --------------------------------------------------------------------

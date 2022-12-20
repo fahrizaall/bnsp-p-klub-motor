@@ -6,9 +6,9 @@
     <h1 class="font-semibold text-xl text-center border-b-2 mb-2">Login</h1>
   
     <div class="w-1/2 m-auto">
-      <form action="/" class="flex flex-col">
-        <label for="username" class="font-semibold text-sm mb-1 mt-4">Username</label>
-        <input type="text" name="username" id="username" class="mb-4 border-2 border-slate-700 rounded-md focus:outline-none focus:ring-0 py-1 px-2" placeholder="username">
+      <form action="/auth/login" class="flex flex-col" method="POST">
+        <label for="email" class="font-semibold text-sm mb-1 mt-4">Username</label>
+        <input type="text" name="email" id="email" class="mb-4 border-2 border-slate-700 rounded-md focus:outline-none focus:ring-0 py-1 px-2" placeholder="username">
         
         <label for="password" class="font-semibold text-sm mb-1">Password</label>
         <input type="password" name="password" id="password" class="border-2 border-slate-700 rounded-md focus:outline-none focus:ring-0 py-1 px-2" placeholder="username">

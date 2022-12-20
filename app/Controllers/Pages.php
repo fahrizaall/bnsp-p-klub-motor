@@ -8,6 +8,10 @@ use App\Models\GaleriModel;
 
 class Pages extends BaseController
 {
+    public function __construct()
+    {
+        // dd(\Config\Services::session()->get());
+    }
     public function index()
     {
         return view('pages/home', ['page_name' => $this->router_name]);

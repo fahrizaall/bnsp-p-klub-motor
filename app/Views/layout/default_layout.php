@@ -26,7 +26,6 @@
   <title>P | <?= $page_name ?></title>
 </head>
 <body class="font-sans relative">
-
   <p class="block lg:hidden absolute top-0 left-0 w-fit h-fit">sidebar</p>
   <div class="flex h-screen static">
     <!-- Sidebar -->
@@ -54,12 +53,21 @@
             <h3 class="text-white font-semibold text-xl pl-4 py-2 mb-1 rounded-lg hover:bg-blue-700 duration-300 ">Auth</h3>
           </a>
           <div class="">
-            <a href="/auth/login">
-              <h3 class="text-gray-300 font-semibold text-lg pl-4 ml-4 pb-1 mb-2 rounded-lg hover:bg-blue-700 hover:text-white duration-300 ">Login</h3>
-            </a>
-            <a href="/auth/signup">
-              <h3 class="text-gray-300 font-semibold text-lg pl-4 ml-4 pb-1 mb-2 rounded-lg hover:bg-blue-700 hover:text-white duration-300 ">Signup</h3>
-            </a>
+            <?php if(isset($_SESSION['user_email'])) : ?>
+              <a href="/">
+                <h3 class="text-gray-300 font-semibold text-lg pl-4 ml-4 pb-1 mb-2 hover:text-white duration-300"><?= $_SESSION['user_username'] ?></h3>
+              </a>
+              <form action="/auth/logout" method="POST" class="pr-4">
+                <button type="submit" class="text-gray-300 font-semibold text-lg ml-4 pl-4 pb-1 mb-2 w-full text-left rounded-lg hover:bg-blue-700 hover:text-white duration-300 ">logout</button>
+              </form>
+            <?php else: ?> 
+              <a href="/auth/login">
+                <h3 class="text-gray-300 font-semibold text-lg pl-4 ml-4 pb-1 mb-2 rounded-lg hover:bg-blue-700 hover:text-white duration-300 ">Login</h3>
+              </a>
+              <a href="/auth/signup">
+                <h3 class="text-gray-300 font-semibold text-lg pl-4 ml-4 pb-1 mb-2 rounded-lg hover:bg-blue-700 hover:text-white duration-300 ">Signup</h3>
+              </a>
+            <?php endif ?>
           </div>
         </div>
       </div>

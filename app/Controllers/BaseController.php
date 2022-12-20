@@ -49,5 +49,6 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
         $this->router_name = \CodeIgniter\Config\Services::router()->getMatchedRouteOptions()['as'];
         // E.g.: $this->session = \Config\Services::session();
+        $this->session = \Config\Services::session();
     }
 }
