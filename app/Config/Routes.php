@@ -43,7 +43,8 @@ $routes->get('/kontak', 'Pages::kontak', ['as' => 'kontak']);
 $routes->get('/about', 'Pages::about', ['as' => 'about']);
 
 $routes->get('/artikel', 'Pages::artikel', ['as' => 'artikel']);
-$routes->get('/artikel/detail', 'Pages::artikelDetail', ['as' => 'artikel detail']);
+// $routes->get('/artikel/detail', 'Pages::artikelDetail', ['as' => 'artikel detail']);
+$routes->get('/artikel/detail/(:num)', 'Pages::artikelDetail/$1', ['as' => 'artikel detail']);
 
 $routes->get('/event', 'Pages::event', ['as' => 'event']);
 $routes->get('/galeri', 'Pages::galeri', ['as' => 'galeri']);

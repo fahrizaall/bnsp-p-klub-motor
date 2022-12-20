@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\ArtikelModel;
+use App\Models\EventModel;
+use App\Models\GaleriModel;
+
 class Pages extends BaseController
 {
     public function index()
@@ -30,19 +34,47 @@ class Pages extends BaseController
     }
     public function artikel()
     {
-        return view('pages/artikel', ['page_name' => $this->router_name]);
+        $artikel = new ArtikelModel();
+
+        $data = [
+            'artikel_data' => $artikel->findAll(),
+            'page_name' => $this->router_name
+        ];
+
+        return view('pages/artikel', $data);
     }
-    public function artikelDetail()
+    public function artikelDetail($id)
     {
-        return view('pages/artikel_detail', ['page_name' => $this->router_name]);
+        $artikel = new ArtikelModel();
+
+        $data = [
+            'artikel' => $artikel->where('id', $id)->first(),
+            'page_name' => $this->router_name
+        ];
+
+        return view('pages/artikel_detail', $data);
     }
     public function event()
     {
-        return view('pages/event', ['page_name' => $this->router_name]);
+        $event = new EventModel();
+
+        $data = [
+            'event_data' => $event->findAll(),
+            'page_name' => $this->router_name
+        ];
+
+        return view('pages/event', $data);
     }
     public function galeri()
     {
-        return view('pages/galeri', ['page_name' => $this->router_name]);
+        $galeri = new GaleriModel();
+
+        $data = [
+            'galeri_data' => $galeri->findAll(),
+            'page_name' => $this->router_name
+        ];
+
+        return view('pages/galeri', $data);
     }
     public function klien()
     {
