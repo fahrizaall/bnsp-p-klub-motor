@@ -8,9 +8,11 @@ use App\Models\GaleriModel;
 
 class Pages extends BaseController
 {
+    protected $galeriModel;
     public function __construct()
     {
         // dd(\Config\Services::session()->get());
+        $this->galeriModel = new GaleriModel();
     }
     public function index()
     {
@@ -74,7 +76,8 @@ class Pages extends BaseController
         $galeri = new GaleriModel();
 
         $data = [
-            'galeri_data' => $galeri->findAll(),
+            'galeri_data' => $galeri->paginate(4),
+            'pager' => $galeri->pager,
             'page_name' => $this->router_name
         ];
 

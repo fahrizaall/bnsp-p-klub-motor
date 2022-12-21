@@ -46,6 +46,7 @@ $routes->get('/artikel', 'Pages::artikel', ['as' => 'artikel']);
 $routes->get('/artikel/detail/(:num)', 'Pages::artikelDetail/$1', ['as' => 'artikel detail']);
 
 $routes->get('/event', 'Pages::event', ['as' => 'event']);
+// $routes->get('/galeri/(:num)', 'Pages::galeri', ['as' => 'galeri']);
 $routes->get('/galeri', 'Pages::galeri', ['as' => 'galeri']);
 $routes->get('/klien', 'Pages::klien', ['as' => 'klien']);
 

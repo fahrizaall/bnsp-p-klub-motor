@@ -9,6 +9,10 @@
       <img src="/assets/images/artikel/<?= $artikel['image'] ?>" class="w-full mb-4" alt="">
 
       <?= $artikel['description'] ?>
+
+      <a href="/artikel" class="text-blue-700">
+        <p class="text-center mt-12 pr-4 pb-2">Kembali</p>
+      </a>
     </div>
   </div>
 </div>
