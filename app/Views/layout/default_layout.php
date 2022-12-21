@@ -26,11 +26,12 @@
   <title>P | <?= $page_name ?></title>
 </head>
 <body class="font-sans relative">
-  <p class="block lg:hidden absolute top-0 left-0 w-fit h-fit">sidebar</p>
+  <p class="block lg:hidden absolute top-2 left-2 w-fit h-fit" onclick="sidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 48 48"><path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z"/></svg></p>
   <div class="flex h-screen static">
     <!-- Sidebar -->
-    <div class="bg-slate-900 w-72 lg:block hidden">
-      <div class="h-48 flex items-center justify-center">
+    <div class="bg-slate-900 w-72 hidden lg:block absolute lg:relative top-0 left-0 h-screen z-10" id="msidebar">
+      <div class="h-48 flex items-center justify-center relative">
+        <p class="absolute top-2 right-3 lg:hidden text-white font-bold" onclick="sidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 48 48"><path fill="#fff" d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/></svg></p>
         <a href="/">
           <p class="font-bold text-6xl text-white">P</p>
         </a>
@@ -80,15 +81,15 @@
         <a href="/">
           <h1 class="text-center font-bold text-5xl py-8">P Klub Motor</h1>
         </a>
-        <div class="w-fit m-auto border-b-2 pb-2 border-slate-300">
-          <p class="lg:hidden block">menu</p>
-          <nav class="gap-x-2 hidden lg:flex">
-            <a class="font-semibold text-lg px-4 pb-1 rounded-md hover:bg-slate-900 hover:text-white" href="/">Home</a>
-            <a class="font-semibold text-lg px-4 pb-1 rounded-md hover:bg-slate-900 hover:text-white" href="/profile">Profile</a>
-            <a class="font-semibold text-lg px-4 pb-1 rounded-md hover:bg-slate-900 hover:text-white" href="/visimisi">Visi dan Misi</a>
-            <a class="font-semibold text-lg px-4 pb-1 rounded-md hover:bg-slate-900 hover:text-white" href="/produk">Produk Kami</a>
-            <a class="font-semibold text-lg px-4 pb-1 rounded-md hover:bg-slate-900 hover:text-white" href="/kontak">Kontak Kami</a>
-            <a class="font-semibold text-lg px-4 pb-1 rounded-md hover:bg-slate-900 hover:text-white" href="/about">About Us</a>
+        <div class="w-fit m-auto border-b-2 pb-2 border-slate-300 relative">
+          <p class="lg:hidden cursor-pointer" onclick="menu()">menu</p>
+          <nav class="gap-x-2 p-2 border-slate-500 border-2 lg:border-0 rounded-lg lg:rounded-none absolute hidden bg-white w-[200px] top-12 -left-20 lg:left-0 lg:top-0 lg:w-fit lg:flex lg:relative" id="menu">
+            <a class="font-semibold text-lg px-4 pb-1 block mb-2 lg:mb-0 rounded-md hover:bg-slate-900 hover:text-white" href="/">Home</a>
+            <a class="font-semibold text-lg px-4 pb-1 block mb-2 lg:mb-0 rounded-md hover:bg-slate-900 hover:text-white" href="/profile">Profile</a>
+            <a class="font-semibold text-lg px-4 pb-1 block mb-2 lg:mb-0 rounded-md hover:bg-slate-900 hover:text-white" href="/visimisi">Visi dan Misi</a>
+            <a class="font-semibold text-lg px-4 pb-1 block mb-2 lg:mb-0 rounded-md hover:bg-slate-900 hover:text-white" href="/produk">Produk Kami</a>
+            <a class="font-semibold text-lg px-4 pb-1 block mb-2 lg:mb-0 rounded-md hover:bg-slate-900 hover:text-white" href="/kontak">Kontak Kami</a>
+            <a class="font-semibold text-lg px-4 pb-1 block mb-2 lg:mb-0 rounded-md hover:bg-slate-900 hover:text-white" href="/about">About Us</a>
           </nav>
         </div>
       </div>
@@ -132,6 +133,13 @@
       
       default:
         break;
+    }
+
+    function menu() {
+      document.getElementById('menu').classList.toggle('hidden')
+    }
+    function sidebar() {
+      document.getElementById('msidebar').classList.toggle('hidden')
     }
   </script>
 </body>
